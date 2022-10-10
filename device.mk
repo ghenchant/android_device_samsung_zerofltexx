@@ -81,6 +81,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/android.hardware.media.omx@1.0-service.rc:system/vendor/etc/init/android.hardware.media.omx@1.0-service.rc
 
+
+# Media - Transcoding
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.sys.fuse.transcode_user_control=true \
+    persist.sys.fuse.transcode_enabled=false \
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
