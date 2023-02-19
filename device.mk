@@ -76,7 +76,7 @@ PRODUCT_COPY_FILES += \
 
 # OpenMAX-shims
 PRODUCT_PACKAGES += \
-    libui_shim \
+    libui_zero_shim \
     libExynosOMX_shim
 
 PRODUCT_COPY_FILES += \
