@@ -44,10 +44,6 @@ TARGET_LD_SHIM_LIBS += \
 TARGET_LD_SHIM_LIBS += \
 	/system/lib64/libbauthserver.so|/vendor/lib64/libbauthtzcommon_shim.so
 
-# GPS-shims
-TARGET_LD_SHIM_LIBS += \
-	/system/bin/gpsd|/vendor/lib64/gpsd_shim.so
-
 # Include path
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/zerofltexx/include
 

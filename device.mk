@@ -49,10 +49,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	libbauthtzcommon_shim
 
-# GPS-Shim
-PRODUCT_PACKAGES += \
-	gpsd_shim
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from universal7420-common
