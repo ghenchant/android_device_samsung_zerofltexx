@@ -90,9 +90,6 @@ vendor/firmware/setfile_6b2.bin
 vendor/firmware/setfile_imx240.bin
 
 # Graphics
-lib/egl/egl.cfg
-lib/egl/libGLES_android.so
-lib64/egl/libGLES_android.so
 vendor/lib/egl/libGLES_mali.so
 vendor/lib64/egl/libGLES_mali.so
 
