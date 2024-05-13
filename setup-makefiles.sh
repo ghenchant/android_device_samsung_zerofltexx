@@ -9,7 +9,7 @@
 set -e
 
 export DEVICE=zerofltexx
-export DEVICE_COMMON=universal7420-common
+export DEVICE_COMMON=exynos7420-common
 export VENDOR=samsung
 
 "./../../${VENDOR}/${DEVICE_COMMON}/setup-makefiles.sh" "$@"
