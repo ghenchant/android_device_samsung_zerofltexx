@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2020 The LineageOS Project
+# Copyright (C) 2021 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,21 +14,36 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/zerofltexx
-
-# Inherit from those products. Most specific first.
+## Inherit from generic products, most specific first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(LOCAL_PATH)/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
-# Inherit common Lineage phone.
+## Product API level
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+
+## Inscreen Fingerprint HAL
+TARGET_HAVE_FOD := true
+
+## Inherit from beyond1lte device
+$(call inherit-product, device/samsung/zerofltexx/device.mk)
+
+## Boot Animation
+TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1440
+
+## Inherit some common Lineage stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Set those variables here to overwrite the inherited values.
+## Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+## Device identifier, this must come after all inclusions
 PRODUCT_NAME := lineage_zerofltexx
 PRODUCT_DEVICE := zerofltexx
-PRODUCT_MODEL := SM-G920F
 PRODUCT_BRAND := samsung
+PRODUCT_MODEL := SM-G920F
 PRODUCT_MANUFACTURER := samsung
+
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
