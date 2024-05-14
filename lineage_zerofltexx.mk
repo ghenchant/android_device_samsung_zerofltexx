@@ -14,30 +14,22 @@
 # limitations under the License.
 #
 
-## Inherit from generic products, most specific first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
-## Product API level
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+# Product API level
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n.mk)
 
-## Inscreen Fingerprint HAL
-TARGET_HAVE_FOD := true
-
-## Inherit from zerofltexx device
+# Inherit from zerofltexx device
 $(call inherit-product, device/samsung/zerofltexx/device.mk)
 
-## Boot Animation
-TARGET_BOOTANIMATION_HALF_RES := true
+# Boot Animation
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
 ## Inherit some common Lineage stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
-## Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 ## Device identifier, this must come after all inclusions
 PRODUCT_NAME := lineage_zerofltexx
@@ -47,3 +39,13 @@ PRODUCT_MODEL := SM-G920F
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
+
+BUILD_FINGERPRINT := "samsung/zerofltexx/zeroflte:7.0/NRD90M/G920FXXS6ETK:user/release-keys"
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=zerofltexx \
+    PRIVATE_BUILD_DESC="zerofltexx-user 7.0 QP1A.190711.020 G960FXXUHFVK1 release-keys"
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.PDA=G960FXXUHFVK1 \
+    ro.build.fingerprint=samsung/starltexx/starlte:10/QP1A.190711.020/G960FXXUHFVK1:user/release-keys
