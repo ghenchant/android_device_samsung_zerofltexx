@@ -1,4 +1,5 @@
-# Copyright (C) 2020 The LineageOS Project
+#
+# Copyright (C) 2022 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,79 +13,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
+## Inherit from the common tree
+include device/samsung/exynos7420-common/BoardConfigCommon.mk
 
-# inherit from universal7420-common
-include device/samsung/universal7420-common/BoardConfigCommon.mk
+## Inherit from the proprietary configuration
+include vendor/samsung/zerofltexx/BoardConfigVendor.mk
 
-LOCAL_PATH := device/samsung/zerofltexx
+DEVICE_PATH := device/samsung/zerofltexx
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := zeroflte,zerofltexx,zeroflteskt,zerolte,zeroltexx,zerolteskt,zeroltecan,zeroltetmo,zerofltecan,zerofltetmo
+# APEX image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2560
-TARGET_SCREEN_WIDTH := 1440
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
-# Camera-shims
-TARGET_LD_SHIM_LIBS += \
-	/system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so \
-	/system/lib64/libexynoscamera.so|/vendor/lib64/libexynoscamera_shim.so
-
-# Fingerprint-shims
-TARGET_LD_SHIM_LIBS += \
-	/system/lib64/libbauthserver.so|/vendor/lib64/libbauthtzcommon_shim.so
-
-# Include path
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/zerofltexx/include
+# Display
+TARGET_SCREEN_DENSITY := 575
 
 # Kernel
-TARGET_KERNEL_CONFIG := lineageos_zero_common_defconfig
+TARGET_KERNEL_CONFIG := exynos7420-zerofltexx_defconfig
 
-# Manifest
-DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
-
-# OpenMAX-shims
-TARGET_LD_SHIM_LIBS += \
-	/system/lib/omx/libOMX.Exynos.AVC.Decoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.AVC.Decoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.AVC.Encoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.AVC.Encoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.HEVC.Decoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.HEVC.Decoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.HEVC.Encoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.HEVC.Encoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.MPEG4.Decoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.MPEG4.Decoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.MPEG4.Encoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.MPEG4.Encoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.VP8.Decoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.VP8.Decoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.VP8.Encoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.VP8.Encoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.VP9.Decoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.VP9.Decoder.so|/vendor/lib64/libui_zero_shim.so \
-	/system/lib/omx/libOMX.Exynos.WMV.Decoder.so|/vendor/lib/libui_zero_shim.so \
-	/system/lib64/omx/libOMX.Exynos.WMV.Decoder.so|/vendor/lib64/libui_zero_shim.so
-
-# Partitions
-BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_BOOTIMAGE_PARTITION_SIZE := 29360128
-BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 35651584
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3124019200
-
-# Radio
-BOARD_MODEM_TYPE := ss333
-
-# Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7420.recovery
+# properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
