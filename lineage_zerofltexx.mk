@@ -25,7 +25,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 ## Inscreen Fingerprint HAL
 TARGET_HAVE_FOD := true
 
-## Inherit from beyond1lte device
+## Inherit from zerofltexx device
 $(call inherit-product, device/samsung/zerofltexx/device.mk)
 
 ## Boot Animation
