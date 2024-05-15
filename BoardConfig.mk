@@ -21,10 +21,6 @@ include vendor/samsung/zerofltexx/BoardConfigVendor.mk
 
 DEVICE_PATH := device/samsung/zerofltexx
 
-# APEX image
-DEXPREOPT_GENERATE_APEX_IMAGE := true
-
-
 TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
 # Display
