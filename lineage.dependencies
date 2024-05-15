@@ -1,6 +1,6 @@
 [
     {
-        "repository": "android_device_samsung_universal7420-common",
-        "target_path": "device/samsung/universal7420-common"
+        "repository": "android_device_samsung_exynos7420-common",
+        "target_path": "device/samsung/exynos7420-common"
     }
 ]
