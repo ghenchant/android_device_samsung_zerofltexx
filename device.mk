@@ -21,6 +21,6 @@ $(call inherit-product, device/samsung/exynos7420-common/common.mk)
 $(call inherit-product, vendor/samsung/zerofltexx/zerofltexx-vendor.mk)
 
 # Setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2560-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-1024-dalvik-heap.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
