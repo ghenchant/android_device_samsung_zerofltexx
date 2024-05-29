@@ -40,12 +40,12 @@ PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
-BUILD_FINGERPRINT := "samsung/zerofltexx/zeroflte:7.0/NRD90M/G920FXXU6EVG1:user/release-keys"
+BUILD_FINGERPRINT := "samsung/zerofltexx/zeroflte:7.0/TQ3A.230901.001/G920FXXU6EVG1:user/release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=zerofltexx \
-    PRIVATE_BUILD_DESC="zerofltexx-user 7.0 NRD90M G920FXXU6EVG1 release-keys"
+    PRIVATE_BUILD_DESC="zerofltexx-user 7.0 TQ3A.230901.001 G920FXXU6EVG1 release-keys"
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.PDA=G920FXXU6EVG1 \
-    ro.build.fingerprint=samsung/zerofltexx/zeroflte:7.0/NRD90M/G920FXXU6EVG1:user/release-keys
+    ro.build.fingerprint=samsung/zerofltexx/zeroflte:7.0/TQ3A.230901.001/G920FXXU6EVG1:user/release-keys
