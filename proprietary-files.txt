@@ -1,4 +1,4 @@
-# All unpinned blobs are from zerofltexx stock (N)
+# Proprietary files - from Samsung package version G920FXXU6EVG1, unless pinned
 
 # Fingerprint
 -lib/libbauthserver.so:vendor/lib/libbauthserver.so
