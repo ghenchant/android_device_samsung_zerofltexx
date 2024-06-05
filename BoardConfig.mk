@@ -24,7 +24,7 @@ DEVICE_PATH := device/samsung/zerofltexx
 TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
 # Display
-TARGET_SCREEN_DENSITY := 577
+TARGET_SCREEN_DENSITY := 576
 
 # Kernel
 TARGET_KERNEL_CONFIG := exynos7420-zerofltexx_defconfig
