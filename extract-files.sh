@@ -9,22 +9,22 @@
 function blob_fixup() {
     case "${1}" in
         vendor/bin/gpsd)
-            "${PATCHELF}" --replace-needed libgui.so libsensor.so "${BLOB_ROOT}/bin/gpsd "${2}"
+            "${PATCHELF}" --replace-needed libgui.so libsensor.so "${2}"
             ;;
         vendor/lib/libsec-ril.so)
-            "${PATCHELF}" --replace-needed libprotobuf-cpp-full.so libprotobuf-cpp-fl24.so "${BLOB_ROOT}/vendor/lib/libsec-ril.so "${2}"
-            sed -i "s/libprotobuf-cpp-full/libprotobuf-cpp-fl24/" "${BLOB_ROOT}/vendor/lib64/libsec-ril.so "${2}"
+            "${PATCHELF}" --replace-needed libprotobuf-cpp-full.so libprotobuf-cpp-fl24.so "${2}"
+            sed -i 's/libprotobuf-cpp-full/libprotobuf-cpp-fl24' "${2}"
             ;;
         vendor/lib/libsec-ril-dsds.so)
-            "${PATCHELF}" --replace-needed libprotobuf-cpp-full.so libprotobuf-cpp-fl24.so "${BLOB_ROOT}/vendor/lib/libsec-ril-dsds.so "${2}"
-            sed -i "s/libprotobuf-cpp-full/libprotobuf-cpp-fl24/" "${BLOB_ROOT}/vendor/lib64/libsec-ril-dsds.so "${2}"
+            "${PATCHELF}" --replace-needed libprotobuf-cpp-full.so libprotobuf-cpp-fl24.so "${2}"
+            sed -i 's/libprotobuf-cpp-full/libprotobuf-cpp-fl24/' "${2}"
             ;;
         vendor/lib/hw/nfc_nci.default.so)
-            "${PATCHELF}" --remove-needed vendor.samsung.hardware.nfc@1.0.so "${BLOB_ROOT}/vendor/lib/hw/nfc_nci.default.so "${2}"
-            "${PATCHELF}" --remove-needed vendor.samsung.hardware.nfc@1.0.so "${BLOB_ROOT}/vendor/lib64/hw/nfc_nci.default.so "${2}"
+            "${PATCHELF}" --remove-needed vendor.samsung.hardware.nfc@1.0.so "${2}"
+            "${PATCHELF}" --remove-needed vendor.samsung.hardware.nfc@1.0.so "${2}"
             ;;
         vendor/bin/mcDriverDaemon)
-            sed -i "s/\/system\/app/\/vendor\/app/g" "${BLOB_ROOT}/vendor/bin/mcDriverDaemon "${2}"
+            sed -i 's/\/system\/app/\/vendor\/app/g' "${2}"
             ;;
     esac
 }
